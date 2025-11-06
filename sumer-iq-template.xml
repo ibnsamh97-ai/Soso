@@ -47,12 +47,12 @@
             "@type": "WebPage",
             "@id": "<data:blog.canonicalUrl/>"
           },
-          "headline": <b:eval expr='&quot;' + data:post.title + '&quot;'/>,
-          "description": <b:eval expr='&quot;' + data:post.snippets.long + '&quot;'/>,
+          "headline": "<data:post.title/>",
+          "description": "<data:post.snippets.long/>",
           "image": "<data:post.firstImageUrl/>",
           "author": {
             "@type": "Person",
-            "name": <b:eval expr='&quot;' + data:post.author.name + '&quot;'/>
+            "name": "<data:post.author.name/>"
           },
           "publisher": {
             "@type": "Organization",
@@ -80,7 +80,7 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": <b:eval expr='&quot;' + data:post.title + '&quot;'/>,
+              "name": "<data:post.title/>",
               "item": "<data:post.url/>"
             }
           ]
