@@ -87,7 +87,7 @@
         }
       </script>
     </b:if>
-    <style>
+    <b:skin><![CDATA[
       :root{color-scheme:light dark;--base-font:'Tajawal',sans-serif;--color-bg:#f7f1ea;--color-text:#2f2d2a;--color-accent:#b9935b;--color-muted:#cfc7be;--color-dark:#1d1b1a;--color-blue:#3a6073;--header-height:72px;--border-radius:12px;--transition:all .3s ease}
       [data-theme='dark']{--color-bg:#111;--color-text:#f4f4f4;--color-accent:#d4b483;--color-muted:#333;--color-dark:#f7f1ea;--color-blue:#4da3c4}
       *{box-sizing:border-box;margin:0;padding:0}
@@ -170,7 +170,7 @@
       @media(max-width:600px){.sitemap-list ul{columns:1}}
       @media(max-width:992px){main{grid-template-columns:1fr}nav{display:none}.mobile-nav{display:flex;justify-content:center;margin:.5rem 0}.mobile-nav select{padding:.6rem 1rem;border-radius:999px;border:1px solid var(--color-muted)}}
       @media(max-width:600px){.top-bar{flex-direction:column;gap:.75rem;text-align:center}.logo-area h1{font-size:1.6rem}header{position:fixed;width:100%}main{margin-top:calc(var(--header-height) + 2.5rem)}}
-    </style>
+    ]]></b:skin>
   </head>
   <body expr:data-view='data:view.name' data-theme='light'>
     <header id='siteHeader'>
