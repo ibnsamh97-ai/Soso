@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' dir='rtl' expr:dir='data:blog.languageDirection' lang='ar' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta expr:content='data:blog.pageTitle' name='title'/>
+    <meta expr:content='data:blog.metaDescription' name='description'/>
+    <meta content='Iraqi News, Technology, Gaming, Literature, Cooking, Culture, History, Health, Beauty, مدونة سومر آي كيو' name='keywords'/>
+    <meta content='index,follow,max-snippet:-1,max-video-preview:-1,max-image-preview:large' name='robots'/>
+    <link expr:href='data:blog.homepageUrl' rel='home'/>
+    <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+    <link expr:href='data:blog.homepageUrl + "sitemap.xml"' rel='sitemap' type='application/xml'/>
+    <link expr:href='data:blog.homepageUrl + "robots.txt"' rel='robots'/>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+    <meta expr:content='data:blog.title' property='og:title'/>
+    <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+    <meta expr:content='data:blog.canonicalUrl' name='twitter:url'/>
+    <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+    <meta expr:content='data:blog.title' name='twitter:title'/>
+    <meta expr:content='data:blog.postImageThumbnailUrl' name='twitter:image'/>
+    <meta content='summary_large_image' name='twitter:card'/>
+    <b:include data='blog' name='all-head-content'/>
+    <script type='application/ld+json'>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sumer IQ",
+        "url": "<data:blog.homepageUrl/>",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "<data:blog.homepageUrl/>search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "sameAs": ["https://www.instagram.com/os_iraq2/"]
+      }
+    </script>
+    <b:if cond='data:view.isSingleItem'>
+      <script type='application/ld+json'>
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "<data:blog.canonicalUrl/>"
+          },
+          "headline": "<data:post.title/>",
+          "description": "<data:post.snippets.long/>",
+          "image": "<data:post.firstImageUrl/>",
+          "author": {
+            "@type": "Person",
+            "name": "<data:post.author.name/>"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Sumer IQ",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "<data:blog.homepageUrl/>logo.png"
+            }
+          },
+          "datePublished": "<data:post.date iso8601='true'/>",
+          "dateModified": "<data:post.lastUpdated iso8601='true'/>"
+        }
+      </script>
+      <script type='application/ld+json'>
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "الرئيسية",
+              "item": "<data:blog.homepageUrl/>"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "<data:post.title/>",
+              "item": "<data:post.url/>"
+            }
+          ]
+        }
+      </script>
+    </b:if>
+    <b:skin><![CDATA[
+      :root{color-scheme:light dark;--base-font:'Tajawal',sans-serif;--color-bg:#f7f1ea;--color-text:#2f2d2a;--color-accent:#b9935b;--color-muted:#cfc7be;--color-dark:#1d1b1a;--color-blue:#3a6073;--header-height:72px;--border-radius:12px;--transition:all .3s ease}
+      [data-theme='dark']{--color-bg:#111;--color-text:#f4f4f4;--color-accent:#d4b483;--color-muted:#333;--color-dark:#f7f1ea;--color-blue:#4da3c4}
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:var(--base-font);background:var(--color-bg);color:var(--color-text);line-height:1.8;margin:0;direction:rtl;text-align:right;position:relative;overflow-x:hidden}
+      body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23b9935b' stroke-width='0.6' opacity='0.25'%3E%3Cpath d='M20 20l20 20-20 20-20-20zm60 60l20 20-20 20-20-20zm60-60l20 20-20 20-20-20z'/%3E%3Cpath d='M80 10v40M10 80h40M110 80h40M80 110v40'/%3E%3C/g%3E%3C/svg%3E");background-size:180px 180px;opacity:.06;pointer-events:none;z-index:0}
+      [data-theme='dark'] body::before{opacity:.12}
+      a{color:var(--color-accent);text-decoration:none;transition:var(--transition)}
+      a:hover{color:var(--color-blue)}
+      img{max-width:100%;height:auto;border-radius:var(--border-radius)}
+      header{position:sticky;top:0;z-index:999;background:rgba(247,241,234,.98);border-bottom:1px solid rgba(185,147,91,.2);backdrop-filter:blur(10px);transition:var(--transition)}
+      [data-theme='dark'] header{background:rgba(17,17,17,.95);border-color:rgba(212,180,131,.15)}
+      .top-bar{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;gap:1rem}
+      .logo-area{text-align:center;flex:1}
+      .logo-area h1{font-size:1.8rem;color:var(--color-dark);letter-spacing:.05em}
+      .logo-area span{display:block;font-size:.85rem;color:var(--color-accent)}
+      nav{flex:2;display:flex;justify-content:center}
+      .nav-menu{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+      .nav-menu li{position:relative}
+      .nav-menu a{padding:.4rem .9rem;border-radius:999px;background:rgba(185,147,91,.12);color:var(--color-dark);font-size:.95rem}
+      [data-theme='dark'] .nav-menu a{background:rgba(212,180,131,.12);color:var(--color-text)}
+      .nav-menu a:hover,.nav-menu a:focus{background:var(--color-accent);color:#fff}
+      .actions{display:flex;align-items:center;gap:.75rem}
+      .toggle-mode,.toggle-search{background:none;border:1px solid var(--color-muted);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;color:var(--color-dark);cursor:pointer;transition:var(--transition)}
+      [data-theme='dark'] .toggle-mode,[data-theme='dark'] .toggle-search{color:var(--color-text);border-color:rgba(212,180,131,.25)}
+      .toggle-mode:hover,.toggle-search:hover{background:var(--color-accent);color:#fff}
+      .search-panel{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:2rem}
+      .search-panel.active{display:flex}
+      .search-panel form{background:var(--color-bg);padding:2rem;border-radius:var(--border-radius);box-shadow:0 20px 60px rgba(0,0,0,.25);width:min(500px,100%);display:flex;gap:.75rem}
+        .search-panel input{flex:1;padding:.75rem 1rem;border:1px solid var(--color-muted);border-radius:var(--border-radius);font-size:1rem}
+        .search-panel button{padding:.75rem 1.5rem;border-radius:var(--border-radius);border:none;background:var(--color-accent);color:#fff;cursor:pointer;font-size:1rem}
+        main{max-width:1200px;margin:calc(var(--header-height) + 1.5rem) auto 2.5rem;padding:0 1.5rem;display:grid;grid-template-columns:2fr 1fr;gap:2rem;position:relative;z-index:1}
+        [data-view='static_page'] main,[data-view='error_page'] main{grid-template-columns:1fr}
+        article{background:rgba(185,147,91,.08);padding:1.5rem;border-radius:var(--border-radius)}
+        [data-theme='dark'] article{background:rgba(212,180,131,.08)}
+        article h2{font-size:1.6rem;margin-bottom:.75rem;color:var(--color-dark)}
+        [data-theme='dark'] article h2{color:var(--color-text)}
+        article .meta{font-size:.85rem;color:var(--color-muted);margin-bottom:.75rem;display:flex;gap:.5rem;flex-wrap:wrap}
+        article .snippet{margin-bottom:1rem;color:rgba(47,45,42,.88)}
+        [data-theme='dark'] article .snippet{color:rgba(244,244,244,.75)}
+        .post-body{display:grid;gap:1.25rem;color:var(--color-text);font-size:1.05rem}
+        .post-body h2,.post-body h3,.post-body h4{color:var(--color-dark)}
+        [data-theme='dark'] .post-body h2,[data-theme='dark'] .post-body h3,[data-theme='dark'] .post-body h4{color:var(--color-text)}
+        .post-body a{color:var(--color-blue);text-decoration:underline}
+      .read-more{display:inline-block;margin-top:.5rem;padding:.5rem 1rem;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-accent);}
+      .read-more:hover{background:var(--color-accent);color:#fff}
+      .sidebar{display:flex;flex-direction:column;gap:1.5rem}
+      .widget{background:rgba(47,45,42,.04);padding:1.25rem;border-radius:var(--border-radius);border:1px solid rgba(47,45,42,.05)}
+      [data-theme='dark'] .widget{background:rgba(244,244,244,.05);border-color:rgba(244,244,244,.08)}
+      .widget h3{margin-bottom:.75rem;font-size:1.1rem;color:var(--color-dark)}
+      [data-theme='dark'] .widget h3{color:var(--color-text)}
+      .breadcrumbs{margin:1rem 0;font-size:.85rem;color:var(--color-muted);display:flex;gap:.5rem;flex-wrap:wrap}
+      .breadcrumbs a{color:var(--color-blue)}
+      .post-body img{margin:1rem 0}
+      .post-footer{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(47,45,42,.1);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+      .share-buttons{display:flex;gap:.75rem}
+      .share-buttons a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--color-accent);color:#fff}
+      .ad-slot{background:rgba(47,45,42,.05);border:1px dashed rgba(185,147,91,.6);border-radius:var(--border-radius);padding:1rem;text-align:center;font-size:.9rem;color:var(--color-muted)}
+      [data-theme='dark'] .ad-slot{background:rgba(244,244,244,.04);border-color:rgba(212,180,131,.5)}
+      .footer{background:rgba(47,45,42,.08);padding:2.5rem 1.5rem;margin-top:3rem}
+      [data-theme='dark'] .footer{background:rgba(244,244,244,.08)}
+      .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+      .footer-logo h2{font-size:1.5rem;color:var(--color-dark);margin-bottom:.5rem}
+      .footer-logo p{font-size:.95rem;color:var(--color-muted)}
+      .footer-links ul{list-style:none;display:grid;gap:.5rem}
+      .footer-links a{color:var(--color-text)}
+      .footer-social a{display:inline-flex;align-items:center;gap:.5rem;color:var(--color-accent);font-weight:600}
+      .footer-bottom{margin-top:2rem;text-align:center;font-size:.85rem;color:var(--color-muted)}
+      #backToTop{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:var(--color-accent);color:#fff;border:none;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:var(--transition);z-index:999}
+      #backToTop:hover{transform:translateY(-4px)}
+      .page{background:rgba(185,147,91,.1);padding:1.5rem;border-radius:var(--border-radius);margin-bottom:2rem}
+      [data-theme='dark'] .page{background:rgba(212,180,131,.08)}
+      .page h2{margin-bottom:1rem;font-size:1.7rem;color:var(--color-dark)}
+      [data-theme='dark'] .page h2{color:var(--color-text)}
+      .page-body{display:grid;gap:1rem;font-size:1rem;color:var(--color-text)}
+      .page-body ul{list-style:disc;padding-right:1.5rem}
+      .page-body li{margin-bottom:.4rem}
+      .contact-card{display:grid;gap:1rem;background:rgba(47,45,42,.04);border-radius:var(--border-radius);padding:1.25rem;border:1px solid rgba(47,45,42,.08)}
+      [data-theme='dark'] .contact-card{background:rgba(244,244,244,.05);border-color:rgba(244,244,244,.08)}
+      .contact-card form{display:grid;gap:.75rem}
+      .contact-card input,.contact-card textarea{padding:.75rem 1rem;border-radius:var(--border-radius);border:1px solid var(--color-muted);background:rgba(255,255,255,.8)}
+      [data-theme='dark'] .contact-card input,[data-theme='dark'] .contact-card textarea{background:rgba(17,17,17,.6);color:var(--color-text)}
+      .contact-card button{padding:.75rem 1.25rem;border:none;border-radius:var(--border-radius);background:var(--color-accent);color:#fff;font-size:1rem;cursor:pointer}
+      .sitemap-list ul{list-style:disc;padding-right:1.5rem;columns:2;column-gap:2rem}
+      @media(max-width:600px){.sitemap-list ul{columns:1}}
+      @media(max-width:992px){main{grid-template-columns:1fr}nav{display:none}.mobile-nav{display:flex;justify-content:center;margin:.5rem 0}.mobile-nav select{padding:.6rem 1rem;border-radius:999px;border:1px solid var(--color-muted)}}
+      @media(max-width:600px){.top-bar{flex-direction:column;gap:.75rem;text-align:center}.logo-area h1{font-size:1.6rem}header{position:fixed;width:100%}main{margin-top:calc(var(--header-height) + 2.5rem)}}
+    ]]></b:skin>
+  </head>
+  <body expr:data-view='data:view.name' data-theme='light'>
+    <header id='siteHeader'>
+      <div class='top-bar'>
+        <nav aria-label='التنقل الرئيسي'>
+          <ul class='nav-menu'>
+            <li><a expr:href='data:blog.homepageUrl' title='الرئيسية'>الرئيسية</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Iraqi%20News"' title='أخبار العراق'>أخبار العراق</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Technology"' title='التكنولوجيا'>التكنولوجيا</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Gaming"' title='الألعاب'>الألعاب</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Literature"' title='الأدب'>الأدب</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Cooking"' title='الطبخ'>الطبخ</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/General"' title='منوعات'>منوعات</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Health%20%26%20Beauty"' title='الصحة والجمال'>الصحة والجمال</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Culture%20%26%20History"' title='الثقافة والتاريخ'>الثقافة والتاريخ</a></li>
+          </ul>
+        </nav>
+        <div class='logo-area'>
+          <h1>سومر IQ</h1>
+          <span>Sumer of Knowledge</span>
+        </div>
+        <div class='actions'>
+          <button class='toggle-search' aria-label='فتح البحث' type='button' id='searchToggle'>
+            <svg fill='currentColor' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M10 2a8 8 0 0 1 6.32 12.906l4.387 4.387-1.414 1.414-4.387-4.387A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z'/></svg>
+          </button>
+          <button class='toggle-mode' aria-label='تبديل الوضع الليلي' type='button' id='themeToggle'>
+            <svg fill='currentColor' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M12 2a1 1 0 0 1 1 1v2.055a7.002 7.002 0 0 1 6.945 6.25l.055.695H22a1 1 0 1 1 0 2h-2.006A7.001 7.001 0 0 1 13 20.945V22a1 1 0 1 1-2 0v-1.055A7.001 7.001 0 0 1 4.006 14H2a1 1 0 1 1 0-2h2.006A7.002 7.002 0 0 1 11 5.055V3a1 1 0 0 1 1-1z'/></svg>
+          </button>
+        </div>
+      </div>
+      <div class='mobile-nav'>
+        <select onchange='if(this.value)location.href=this.value'>
+          <option value=''>اختر قسماً</option>
+          <option expr:value='data:blog.homepageUrl'>الرئيسية</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Iraqi%20News"'>أخبار العراق</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Technology"'>التكنولوجيا</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Gaming"'>الألعاب</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Literature"'>الأدب</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Cooking"'>الطبخ</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/General"'>منوعات</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Health%20%26%20Beauty"'>الصحة والجمال</option>
+          <option expr:value='data:blog.homepageUrl + "search/label/Culture%20%26%20History"'>الثقافة والتاريخ</option>
+        </select>
+      </div>
+      <div class='ad-slot ad-header' data-ad-slot='header-top'>
+        <strong>مساحة إعلانية للرأس</strong>
+        <p>استبدل هذا العنصر بوحدة AdSense تتيحها غوغل.</p>
+      </div>
+    </header>
+    <div class='search-panel' id='searchPanel'>
+      <form action='/search' method='get' role='search'>
+        <input aria-label='ابحث في الموقع' name='q' placeholder='ابحث عن موضوع...' type='search'/>
+        <button type='submit'>بحث</button>
+      </form>
+    </div>
+    <main>
+      <section>
+        <div class='breadcrumbs'>
+          <span><a expr:href='data:blog.homepageUrl'>الرئيسية</a></span>
+          <b:if cond='data:view.isLabelSearch'>
+            <span>/</span>
+            <span><data:view.label.name/></span>
+          </b:if>
+          <b:if cond='data:view.isSingleItem'>
+            <span>/</span>
+            <span><data:post.title/></span>
+          </b:if>
+        </div>
+        <div class='ad-slot ad-infeed' data-ad-slot='infeed-top'>
+          <strong>مساحة إعلانية داخل المحتوى</strong>
+        </div>
+        <b:if cond='data:view.isStaticPage'>
+          <article class='page'>
+            <h2><data:page.title/></h2>
+            <div class='page-body'>
+              <b:if cond='data:page.content != ""'>
+                <data:page.content/>
+              </b:if>
+              <b:if cond='data:page.content == ""'>
+                <b:if cond='data:page.title == "من نحن" or data:page.title == "About"'>
+                  <p>مرحباً بكم في <strong>سومر IQ</strong>، منصتكم العراقية التي تنقل نبض المجتمع وتحتفي بإرث حضارة سومر العريقة. نسعى إلى تقديم محتوى موثوق، متنوع، وسهل القراءة يجمع بين الأخبار العراقية، التكنولوجيا، الألعاب، الأدب، الطبخ، الثقافة، التاريخ، الصحة والجمال.</p>
+                  <p>رؤيتنا أن نصبح مرجعاً رقمياً عراقياً شاملاً يطلق شرارة الفضول لدى القرّاء ويقدّم معلومة دقيقة بأسلوب عربي حديث يحترم القيم ويحتفي بالهوية الوطنية.</p>
+                  <ul>
+                    <li>مصداقية عالية في جميع المواد المنشورة.</li>
+                    <li>تجربة قراءة مريحة على الأجهزة المحمولة وسريعة الاستجابة.</li>
+                    <li>التزام بمعايير تحسين محركات البحث والشفافية الإعلانية.</li>
+                  </ul>
+                  <p>شكراً لثقتكم. كونوا بالقرب من سومر IQ وشاركوا المحتوى مع من تحبون.</p>
+                </b:if>
+                <b:if cond='data:page.title == "اتصل بنا" or data:page.title == "Contact Us"'>
+                  <div class='contact-card'>
+                    <p>يسعدنا تواصلكم مع فريق <strong>سومر IQ</strong>. يرجى تعبئة النموذج الآتي لإرسال رسالتكم، وسيتم الرد في أقرب وقت ممكن.</p>
+                    <form action='https://formspree.io/f/your-id' method='post'>
+                      <input name='name' placeholder='الاسم الكامل' required='' type='text'/>
+                      <input name='_replyto' placeholder='البريد الإلكتروني' required='' type='email'/>
+                      <textarea name='message' placeholder='رسالتك' required='' rows='5'></textarea>
+                      <button type='submit'>إرسال</button>
+                    </form>
+                    <p>يمكنكم كذلك مراسلتنا مباشرة عبر البريد: <a href='mailto:contact@sumeriq.com'>contact@sumeriq.com</a></p>
+                  </div>
+                </b:if>
+                <b:if cond='data:page.title == "سياسة الخصوصية" or data:page.title == "Privacy Policy"'>
+                  <p>نلتزم في <strong>سومر IQ</strong> بحماية خصوصية زوارنا وضمان سرية بياناتهم. يوضح هذا البيان كيفية جمع البيانات واستخدامها.</p>
+                  <h3>البيانات التي نجمعها</h3>
+                  <ul>
+                    <li>بيانات تقنية تلقائية مثل عنوان IP، نوع المتصفح، الصفحات التي تمت زيارتها.</li>
+                    <li>معلومات يقدمها الزائر طوعياً في النماذج أو التعليقات.</li>
+                  </ul>
+                  <h3>استخدام البيانات</h3>
+                  <ul>
+                    <li>تحسين تجربة المستخدم وتخصيص المحتوى.</li>
+                    <li>تحليل الأداء وتطوير خدمات الموقع.</li>
+                    <li>عرض الإعلانات المتوافقة مع سياسات Google AdSense.</li>
+                  </ul>
+                  <h3>ملفات تعريف الارتباط (Cookies)</h3>
+                  <p>نستخدم ملفات تعريف الارتباط لتحسين الأداء. يمكن للزائر تعطيلها من إعدادات المتصفح.</p>
+                  <h3>روابط خارجية</h3>
+                  <p>قد يحتوي الموقع على روابط لمواقع أخرى ولسنا مسؤولين عن محتواها أو سياساتها.</p>
+                  <h3>التعديلات</h3>
+                  <p>قد نقوم بتحديث سياسة الخصوصية، وسيتم نشر آخر تحديث في هذه الصفحة.</p>
+                  <p>للاستفسارات تواصلوا معنا عبر <a href='mailto:privacy@sumeriq.com'>privacy@sumeriq.com</a>.</p>
+                </b:if>
+                <b:if cond='data:page.title == "خريطة الموقع" or data:page.title == "Sitemap"'>
+                  <div class='sitemap-list'>
+                    <p>استكشف جميع أقسام <strong>سومر IQ</strong> بسهولة:</p>
+                    <ul>
+                      <li><a expr:href='data:blog.homepageUrl'>الرئيسية</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Iraqi%20News"'>أخبار العراق</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Technology"'>التكنولوجيا</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Gaming"'>الألعاب</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Literature"'>الأدب</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Cooking"'>الطبخ</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/General"'>منوعات</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Health%20%26%20Beauty"'>الصحة والجمال</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "search/label/Culture%20%26%20History"'>الثقافة والتاريخ</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "p/about.html"'>من نحن</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "p/contact-us.html"'>اتصل بنا</a></li>
+                      <li><a expr:href='data:blog.homepageUrl + "p/privacy-policy.html"'>سياسة الخصوصية</a></li>
+                    </ul>
+                  </div>
+                  <p>لرؤية خريطة XML الرسمية، تفضل بزيارة <a expr:href='data:blog.homepageUrl + "sitemap.xml"' rel='nofollow'>ملف sitemap.xml</a>.</p>
+                </b:if>
+              </b:if>
+            </div>
+          </article>
+        </b:if>
+        <b:section class='main-section' id='MainSection' maxwidgets='10' name='Main Posts' showaddelement='yes'>
+          <b:widget id='Blog1' locked='true' title='مدونة' type='Blog'>
+            <b:includable id='main'>
+              <b:include data='blog' name='status-message'/>
+              <b:loop values='data:posts' var='post'>
+                  <b:include data='post' name='post'/>
+              </b:loop>
+              <b:include data='blog' name='pagination'/>
+              <div class='ad-slot ad-infeed' data-ad-slot='infeed-bottom'>
+                <strong>مساحة إعلانية إضافية</strong>
+              </div>
+            </b:includable>
+              <b:includable id='post'>
+                <article expr:class='data:view.isSingleItem ? "post-full" : "post-card"' expr:id='"post-" + data:post.id'>
+                  <h2>
+                    <b:if cond='data:view.isSingleItem'>
+                      <data:post.title/>
+                    </b:if>
+                    <b:if cond='not data:view.isSingleItem'>
+                      <a expr:href='data:post.url'><data:post.title/></a>
+                    </b:if>
+                  </h2>
+                  <div class='meta'>
+                    <b:if cond='data:post.labels and data:post.labels != ""'>
+                      <span><svg fill='currentColor' height='14' viewBox='0 0 24 24' width='14'><path d='M7 2h10a2 2 0 0 1 2 2v16l-7-3-7 3V4a2 2 0 0 1 2-2z'/></svg> <data:post.labels/></span>
+                    </b:if>
+                    <span><svg fill='currentColor' height='14' viewBox='0 0 24 24' width='14'><path d='M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5zm0 2c-3.86 0-7 3.14-7 7h2c0-2.761 2.239-5 5-5s5 2.239 5 5h2c0-3.86-3.14-7-7-7z'/></svg> <data:post.author.name/></span>
+                    <span><svg fill='currentColor' height='14' viewBox='0 0 24 24' width='14'><path d='M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0-6C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 2c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z'/></svg> <data:post.date/></span>
+                  </div>
+                  <b:if cond='data:post.thumbnailUrl'>
+                    <a class='thumbnail' expr:href='data:post.url'>
+                      <img alt='صورة المقال' expr:src='data:post.thumbnailUrl' loading='lazy'/>
+                    </a>
+                  </b:if>
+                  <b:if cond='data:view.isSingleItem'>
+                    <div class='post-body'>
+                      <data:post.body/>
+                    </div>
+                  </b:if>
+                  <b:if cond='not data:view.isSingleItem'>
+                    <div class='snippet'><data:post.snippets.short/></div>
+                    <a class='read-more' expr:href='data:post.url'>اكمل القراءة</a>
+                  </b:if>
+                </article>
+              </b:includable>
+          </b:widget>
+        </b:section>
+      </section>
+      <aside class='sidebar'>
+        <div class='ad-slot ad-sidebar' data-ad-slot='sidebar-top'>
+          <strong>مساحة إعلانية جانبية</strong>
+        </div>
+        <b:section class='sidebar-widgets' id='Sidebar' maxwidgets='10' name='Sidebar Widgets' showaddelement='yes'/>
+        <div class='widget'>
+          <h3>تابعنا</h3>
+          <p>انضم إلى مجتمع سومر IQ على الشبكات الاجتماعية.</p>
+          <a class='instagram' href='https://www.instagram.com/os_iraq2/' rel='noopener' target='_blank'>@os_iraq2</a>
+        </div>
+        <div class='widget'>
+          <h3>المواضيع الرائجة</h3>
+          <b:section id='PopularPosts' maxwidgets='1' name='Popular Posts' showaddelement='yes'/>
+        </div>
+      </aside>
+    </main>
+    <b:if cond='data:view.isSingleItem'>
+      <section class='ad-slot ad-article' data-ad-slot='article-inline'>
+        <strong>ضع هنا وحدة إعلانية داخل المقال</strong>
+      </section>
+      <section class='related-posts'>
+        <b:include data='blog' name='related-posts'/>
+      </section>
+      <section class='post-footer'>
+        <div class='share-buttons'>
+          <a expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' rel='noopener' target='_blank' title='مشاركة على فيسبوك'>ف</a>
+          <a expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' rel='noopener' target='_blank' title='مشاركة على تويتر'>ت</a>
+          <a expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; - &quot; + data:post.url' rel='noopener' target='_blank' title='مشاركة على واتساب'>وات</a>
+        </div>
+        <b:section class='post-widgets' id='PostFooter' maxwidgets='2' name='Post Footer Widgets' showaddelement='yes'/>
+      </section>
+      <b:include data='post' name='comments'/>
+    </b:if>
+    <footer class='footer'>
+      <div class='footer-grid'>
+        <div class='footer-logo'>
+          <h2>سومر IQ</h2>
+          <p>مدونة عراقية متعددة التخصصات تجمع الأخبار، الثقافة، المعرفة، والجمال بأسلوب عصري مستلهم من حضارة سومر.</p>
+        </div>
+        <div class='footer-links'>
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a expr:href='data:blog.homepageUrl'>الرئيسية</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "p/about.html"'>من نحن</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "p/contact-us.html"'>اتصل بنا</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "p/privacy-policy.html"'>سياسة الخصوصية</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "p/sitemap.html"'>خريطة الموقع</a></li>
+          </ul>
+        </div>
+        <div class='footer-links'>
+          <h3>التصنيفات</h3>
+          <ul>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Iraqi%20News"'>أخبار العراق</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Technology"'>التكنولوجيا</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Gaming"'>الألعاب</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Literature"'>الأدب</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Cooking"'>الطبخ</a></li>
+          </ul>
+        </div>
+        <div class='footer-social'>
+          <h3>تابع سومر IQ</h3>
+          <a href='https://www.instagram.com/os_iraq2/' rel='noopener' target='_blank'>
+            <svg fill='currentColor' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6.25-3.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z'/></svg>
+            @os_iraq2
+          </a>
+        </div>
+      </div>
+      <div class='footer-bottom'>
+        © 2025 Sumer IQ — جميع الحقوق محفوظة | صُمم للجودة | تابعنا @os_iraq2
+      </div>
+    </footer>
+    <button aria-label='العودة للأعلى' id='backToTop' type='button'>
+      <svg fill='currentColor' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='m4 12 1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12 12 4z'/></svg>
+    </button>
+    <script>
+      (function(){var body=document.body,back=document.getElementById('backToTop'),searchToggle=document.getElementById('searchToggle'),searchPanel=document.getElementById('searchPanel'),themeToggle=document.getElementById('themeToggle'),stored=localStorage.getItem('sumer-theme');if(stored){body.setAttribute('data-theme',stored);}function toggleTheme(){var next=body.getAttribute('data-theme')==='dark'?'light':'dark';body.setAttribute('data-theme',next);localStorage.setItem('sumer-theme',next);}function toggleSearch(){searchPanel.classList.toggle('active');if(searchPanel.classList.contains('active')){searchPanel.querySelector('input').focus();}}themeToggle.addEventListener('click',toggleTheme);searchToggle.addEventListener('click',toggleSearch);searchPanel.addEventListener('click',function(e){if(e.target===searchPanel){toggleSearch();}});window.addEventListener('scroll',function(){back.style.display=window.scrollY>300?'flex':'none';});back.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();</script>
+    <b:include data='blog' name='body-end'/>
+  </body>
+</html>
