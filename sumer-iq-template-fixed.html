@@ -1,0 +1,358 @@
+<!--
+قالب بلوجر "سومر IQ" — قالب HTML متجاوب (RTL) بتصميم تراثي-تقني.
+ملاحظة: هذا ملف HTML عام مصمم لنسخه داخل "Theme > Edit HTML" في لوحة بلوجر أو استخدم أجزاء منه كـ"HTML/JavaScript" gadget.
+يحتوي على: رأس باسم "سومر IQ"، شريط علوي يظهر الطقس والموقع (يتطلب مفتاح OpenWeatherMap)، صفحة مقالات وهمية، صفحات "من نحن" و"اتصل بنا"، وتأثيرات أنيقة متحركة ونقوش سومرية بسيطة.
+
+تعليمات سريعة:
+- للحصول على الطقس: سجّل في https://openweathermap.org واحصل على API Key ثم ضع القيمة في المتغير API_KEY داخل السكربت.
+- لرفع القالب كامل: افتح لوحة بلوجر => Theme => Edit HTML => استبدل المحتوى بمحتوى هذا الملف.
+- بدلاً من ذلك يمكنك أخذ أجزاء (header, footer, widgets) وإضافتها كـ Widgets.
+
+الإصدار المصحح: تم معالجة أخطاء واجهت النسخة السابقة (تفاصيل في أسفل الملف).
+-->
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سومر IQ</title>
+
+  <!-- خطوط عربية -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Reem+Kufi&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0d; /* داكن رقمي */
+      --panel:#0f1720;
+      --accent:#00e5ff; /* فيروزي نيون */
+      --gold:#c79f3b; /* ذهبي */
+      --muted:#bfc3c6;
+      --card:#0f1a23;
+      --glass: rgba(255,255,255,0.04);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#071019);font-family:'Cairo',sans-serif;color:#e6eef6}
+
+    /* نقش سومري خفيف كخلفية */
+    body::before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;opacity:0.06;
+      background-image:radial-gradient(circle at 10% 10%, rgba(199,159,59,0.06), transparent 12%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><text x="0" y="20" font-size="18" fill="%23c79f3b">𒀭 𒁹 𒀊</text></svg>');
+      background-repeat:repeat;mix-blend-mode:screen;
+      transform:scale(1.2);
+    }
+
+    header{position:sticky;top:0;z-index:999;background:linear-gradient(180deg, rgba(15,22,32,0.85), rgba(10,12,14,0.6));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{display:flex;flex-direction:column;align-items:flex-end}
+    .logo h1{margin:0;font-family:'Reem Kufi', 'Cairo';font-size:20px;letter-spacing:1px;color:var(--gold);text-shadow:0 3px 14px rgba(199,159,59,0.12)}
+    .logo small{font-size:11px;color:var(--muted)}
+
+    .weather-loc{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+    .weather-loc .temp{font-weight:700;color:var(--accent)}
+
+    nav.mainnav{display:flex;align-items:center;gap:14px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px;font-weight:600;border-radius:8px}
+    nav a:hover{color:var(--accent);background:rgba(0,229,255,0.04)}
+
+    .container{max-width:1200px;margin:20px auto;padding:0 16px}
+
+    /* بانر رئيسي */
+    .hero{background:linear-gradient(90deg, rgba(0,229,255,0.06), rgba(199,159,59,0.02));border-radius:14px;padding:28px;display:flex;gap:24px;align-items:center;overflow:hidden;transition:transform .3s ease}
+    .hero .left{flex:1}
+    .hero h2{margin:0;font-size:28px;color:var(--gold);font-family:'Reem Kufi'}
+    .hero p{color:var(--muted);margin-top:8px;line-height:1.6}
+    .cta{margin-top:12px;display:flex;gap:10px}
+    .btn{padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#60ffd9);color:#021018;text-decoration:none;font-weight:700;transition:box-shadow .3s ease, transform .3s ease}
+    .btn:hover{box-shadow:0 10px 24px rgba(0,229,255,0.2);transform:translateY(-2px)}
+
+    .hero .art{width:260px;height:160px;border-radius:12px;background:linear-gradient(135deg, rgba(199,159,59,0.06), rgba(0,229,255,0.04));display:flex;align-items:center;justify-content:center;position:relative}
+    .glyph{font-size:44px;opacity:0.95;color:rgba(199,159,59,0.95);filter:drop-shadow(0 6px 18px rgba(0,229,255,0.06))}
+
+    /* شبكة المقالات */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .36s ease, box-shadow .36s ease}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+    .card img{width:100%;border-radius:8px;height:160px;object-fit:cover}
+    .card h3{margin:10px 0 6px 0;color:var(--gold);font-size:16px}
+    .meta{font-size:12px;color:var(--muted)}
+
+    /* sidebar بسيط */
+    .layout{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:20px}
+    aside .widget{background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* footer */
+    footer{margin-top:28px;padding:22px;border-top:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted)}
+
+    /* تأثيرات scroll animations بسيطة */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* responsive */
+    @media(max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .layout{grid-template-columns:1fr}
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero .art{width:100%;height:180px}
+    }
+    @media(max-width:520px){
+      nav.mainnav{display:none}
+      .logo h1{font-size:18px}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* لمسة نهائية - نقش داخلي عند hover للعناوين */
+    .card h3::after{content:'';display:block;height:4px;width:36px;border-radius:4px;margin-top:8px;background:linear-gradient(90deg,var(--gold),var(--accent));opacity:.9}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar container">
+      <div class="brand">
+        <div class="logo">
+          <h1>سومر IQ</h1>
+          <small>الألعاب | التطور الرقمي | ثراء تراثي</small>
+        </div>
+        <!-- أيقونة صغيرة نقش -->
+        <div class="glyph" aria-hidden="true">𒀭</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:18px">
+        <nav class="mainnav" role="navigation">
+          <a href="#home">الرئيسية</a>
+          <a href="#articles">المقالات</a>
+          <a href="#about">من نحن</a>
+          <a href="#contact">اتصل بنا</a>
+          <a href="https://instagram.com/os_iraq0" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+
+        <div class="weather-loc" id="weatherBar">
+          <div class="temp">--°</div>
+          <div class="loc">تحميل الموقع...</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero reveal">
+      <div class="left">
+        <h2>عالم الألعاب يلتقي بتراث الرافدين</h2>
+        <p>سومر IQ منصة عراقية متخصصة في تغطية ألعاب الفيديو، التطور الرقمي، والمشاريع التقنية من منظور محلي وعالمي. هنا تلتقي استراتيجيات العصر بتراثٍ يمتد لآلاف السنين.</p>
+        <div class="cta">
+          <a class="btn" href="#articles">اقرأ أحدث المقالات</a>
+          <a class="btn" href="#about" style="background:transparent;color:var(--gold);border:1px solid rgba(199,159,59,0.12)">تعرف على فريقنا</a>
+        </div>
+      </div>
+      <div class="art">
+        <div class="glyph">𒀭</div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section>
+        <h3 id="articles" style="color:var(--gold);">أحدث المقالات</h3>
+        <div class="grid">
+          <!-- بطاقات للتوضيح - في بلوجر استبدلها بمحرك المشاركات -->
+          <article class="card reveal">
+            <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367e?w=1200&q=60" alt="مراجعة لعبة">
+            <h3>مراجعة سريعة: لعبة عراقية تخطف الأنفاس</h3>
+            <div class="meta">15 نوفمبر 2025 · ألعاب</div>
+            <p style="color:var(--muted);margin-top:8px">نظرة على تجربة لعب محلية تمزج سردًا حضارياً وأسلوب لعب معاصر.</p>
+          </article>
+
+          <article class="card reveal">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=60" alt="تكنولوجيا">
+            <h3>كيف تبني سيرفر ألعاب محلي بتكلفة منخفضة</h3>
+            <div class="meta">12 نوفمبر 2025 · تطوير</div>
+            <p style="color:var(--muted);margin-top:8px">دليل عملي لإعداد البنية التحتية وتشغيل مجتمع لاعبين في العراق.</p>
+          </article>
+
+          <article class="card reveal">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&q=60" alt="محتوى رقمي">
+            <h3>تأثير الثقافة العراقية على تصميم الألعاب</h3>
+            <div class="meta">09 نوفمبر 2025 · ثقافة رقمية</div>
+            <p style="color:var(--muted);margin-top:8px">مقال يتتبع عناصر الهوية العراقية في الألعاب الحديثة.</p>
+          </article>
+        </div>
+
+        <!-- قسم إضافي: ألعاب الأسبوع -->
+        <h3 style="color:var(--gold);margin-top:20px">ألعاب الأسبوع</h3>
+        <div class="grid">
+          <article class="card reveal">
+            <h3>لعبة الـArena المحلية</h3>
+            <div class="meta">متعدد اللاعبين · تحديث 3.2</div>
+          </article>
+          <article class="card reveal">
+            <h3>تجربة VR عراقية</h3>
+            <div class="meta">واقع افتراضي · استطلاع</div>
+          </article>
+          <article class="card reveal">
+            <h3>مشروع تعليمي: برمجة الألعاب</h3>
+            <div class="meta">تعليم · مشاركة المجتمع</div>
+          </article>
+        </div>
+      </section>
+
+      <aside>
+        <div class="widget reveal">
+          <h4 style="color:var(--gold);margin-top:0">عن سومر IQ</h4>
+          <p style="color:var(--muted);line-height:1.6">نحن فريق عراقي شغوف بالتكنولوجيا والألعاب، هدفنا إبراز المحتوى العربي الأصيل ومزجه مع أصالة حضارة الرافدين. نتحدث عن المراجعات، الأخبار التقنية، ودروس عملية لبناء مجتمع رقمي قوي في العراق.</p>
+        </div>
+
+        <div class="widget reveal" style="margin-top:12px">
+          <h4 style="color:var(--gold);margin-top:0">التقويم والطقس</h4>
+          <div id="miniWeather" style="font-size:14px;color:var(--muted)">تحميل...</div>
+        </div>
+
+        <div class="widget reveal" style="margin-top:12px">
+          <h4 style="color:var(--gold);margin-top:0">تابعنا</h4>
+          <p style="color:var(--muted)">انستغرام: <a href="https://instagram.com/os_iraq0" target="_blank" rel="noopener" style="color:var(--accent)">@os_iraq0</a></p>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- من نحن -->
+    <section id="about" style="margin-top:28px" class="reveal">
+      <h3 style="color:var(--gold);">من نحن — فريق سومر IQ</h3>
+      <p style="color:var(--muted);line-height:1.8">نحن فريق عراقي يتكون من مطورين، مصممين، وصحفيين تقنيين، نؤمن أن الهوية والتراث يمكن أن يتعايشا مع أحدث التقنيات. ننتج مراجعات عميقة، تقارير تطويرية، ودروس عملية موجهة لمطوري الألعاب ومحترفي التكنولوجيا في المنطقة.</p>
+    </section>
+
+    <!-- اتصل بنا -->
+    <section id="contact" style="margin-top:28px" class="reveal">
+      <h3 style="color:var(--gold);">اتصل بنا</h3>
+      <form id="contactForm" style="margin-top:12px;display:grid;gap:10px;max-width:680px">
+        <input placeholder="اسمك" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)" />
+        <input type="email" placeholder="بريدك الإلكتروني" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)" />
+        <textarea placeholder="رسالـتك" rows="5" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)"></textarea>
+        <button type="submit" class="btn">أرسل الرسالة</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div style="text-align:right">
+          <strong style="color:var(--gold)">سومر IQ</strong>
+          <div style="color:var(--muted)">© 2025 جميع الحقوق محفوظة</div>
+        </div>
+        <div style="color:var(--muted)">تم تصميم القالب بطابع سومري-تقني. تواصل معنا: <a href="https://instagram.com/os_iraq0" style="color:var(--accent)" rel="noopener">@os_iraq0</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- إعداد الطقس (يتطلب API Key من OpenWeatherMap) -----
+    const API_KEY = "ضع_مفتاح_الـAPI_هنا"; // <-- ضع مفتاح OpenWeatherMap هنا
+
+    function formatTempLabel(value){
+      if(typeof value === 'number' && isFinite(value)){
+        return Math.round(value) + '°C';
+      }
+      if(typeof value === 'string' && value.trim() !== ''){
+        return value;
+      }
+      return '--°';
+    }
+
+    function setWeatherUI(tempC, name){
+      const bar = document.getElementById('weatherBar');
+      if(!bar) return;
+      const t = bar.querySelector('.temp');
+      const l = bar.querySelector('.loc');
+      const formatted = formatTempLabel(tempC);
+      if(t) t.textContent = formatted;
+      if(l) l.textContent = name || 'الطقس';
+
+      const mini = document.getElementById('miniWeather');
+      if(mini){
+        const baseLabel = name || 'الطقس';
+        if(typeof tempC === 'number' && isFinite(tempC)){
+          mini.textContent = baseLabel + ' · ' + Math.round(tempC) + '°C';
+        } else {
+          mini.textContent = baseLabel;
+        }
+      }
+    }
+
+    function fetchWeatherByCoords(lat,lon){
+      if(!API_KEY || API_KEY.includes('ضع_')){
+        setWeatherUI('--°','الطقس (مطلوب API)');
+        return;
+      }
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}&lang=ar`)
+        .then(r=>r.ok ? r.json() : Promise.reject(new Error('response_not_ok')))
+        .then(d=>{
+          if(d && d.main && typeof d.main.temp === 'number'){
+            const locName = d.name || 'موقعك';
+            setWeatherUI(d.main.temp, locName);
+          } else {
+            setWeatherUI('--°','تعذر قراءة الطقس');
+          }
+        }).catch(()=>{
+          setWeatherUI('--°','خطأ تحميل الطقس');
+        });
+    }
+
+    // محاولة الحصول على موقع المستخدم
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(pos=>{
+        fetchWeatherByCoords(pos.coords.latitude,pos.coords.longitude);
+      }, ()=>{
+        // افتراض: بغداد
+        fetchWeatherByCoords(33.3152,44.3661);
+      }, {timeout:6000});
+    } else {
+      fetchWeatherByCoords(33.3152,44.3661);
+    }
+
+    // تأثيرات reveal عند التمرير
+    const revealEls = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+      },{threshold:0.12});
+      revealEls.forEach(el=>obs.observe(el));
+    } else {
+      revealEls.forEach(el=>el.classList.add('visible'));
+    }
+
+    // نموذج اتصل بنا - هنا مجرد عرض (يمكن ربطه بخدمة SMTP أو Google Forms)
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm){
+      contactForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('شكرًا! تم إرسال الرسالة (هذه نسخة تجريبية داخل القالب)');
+        this.reset();
+      });
+    }
+
+    // تحسينات صغيرة: إضافة تظليل متحرك في الخلفية للبنر
+    const hero = document.querySelector('.hero');
+    if(hero){
+      hero.addEventListener('mousemove', (ev)=>{
+        const rect = hero.getBoundingClientRect();
+        const x = (ev.clientX - rect.left - rect.width/2)/rect.width;
+        const y = (ev.clientY - rect.top - rect.height/2)/rect.height;
+        hero.style.transform = `translate(${x * 6}px, ${y * 6}px)`;
+      });
+      hero.addEventListener('mouseleave', ()=>{
+        hero.style.transform = '';
+      });
+    }
+  </script>
+
+  <!--
+  التعديلات الرئيسية في هذا الإصدار:
+  1. إصلاح خطأ عرض درجة الحرارة عند عدم توفر بيانات (كان Math.round يستقبل نصًا فنتج NaN).
+  2. إضافة تحقق من توفر IntersectionObserver لضمان عدم توقف السكربت في المتصفحات القديمة.
+  3. حماية إضافية في نموذج الاتصال والأبطال لضمان عدم ظهور أخطاء عند إزالة العناصر.
+  4. تحسين رسائل الخطأ للطقس وتنسيق درجة الحرارة.
+  -->
+</body>
+</html>
