@@ -1146,19 +1146,21 @@ img[loading="lazy"].loaded {
             <!-- Sidebar -->
             <aside class='sidebar'>
                 <!-- Search Widget -->
-                <div class='widget'>
-                    <h3 class='widget-title'>بحث في الموقع</h3>
-                    <b:section class='search-section' id='search-section' maxwidgets='1'>
-                        <b:widget id='Search1' locked='false' title='بحث' type='BlogSearch' version='2'>
-                            <b:includable id='main'>
-                                <div class='search-box'>
-                                    <input expr:placeholder='&quot;ابحث هنا...&quot;' name='q' type='text'/>
-                                    <button type='submit'>🔍</button>
-                                </div>
-                            </b:includable>
-                        </b:widget>
-                    </b:section>
-                </div>
+                <b:section class='search-section' id='search-section' maxwidgets='1'>
+                    <b:widget id='BlogSearch1' locked='false' title='بحث في الموقع' type='BlogSearch' version='2'>
+                        <b:includable id='main'>
+                            <div class='widget'>
+                                <h3 class='widget-title'><data:title/></h3>
+                                <form expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get'>
+                                    <div class='search-box'>
+                                        <input expr:placeholder='&quot;ابحث هنا...&quot;' name='q' type='text'/>
+                                        <button type='submit'>🔍</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
 
                 <!-- AdSense Sidebar Ad -->
                 <div class='ad-placeholder widget'>
