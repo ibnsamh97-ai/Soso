@@ -1144,78 +1144,76 @@ img[loading="lazy"].loaded {
             </main>
 
             <!-- Sidebar -->
-            <aside class='sidebar'>
+            <b:section class='sidebar' id='sidebar' maxwidgets='10' showaddelement='yes'>
                 <!-- Search Widget -->
-                <b:section class='search-section' id='search-section' maxwidgets='1'>
-                    <b:widget id='BlogSearch1' locked='false' title='بحث في الموقع' type='BlogSearch' version='2'>
-                        <b:includable id='main'>
-                            <div class='widget'>
-                                <h3 class='widget-title'><data:title/></h3>
-                                <form expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get'>
-                                    <div class='search-box'>
-                                        <input expr:placeholder='&quot;ابحث هنا...&quot;' name='q' type='text'/>
-                                        <button type='submit'>🔍</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                </b:section>
+                <b:widget id='BlogSearch1' locked='false' title='بحث في الموقع' type='BlogSearch' version='2'>
+                    <b:includable id='main'>
+                        <div class='widget'>
+                            <h3 class='widget-title'><data:title/></h3>
+                            <form expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get'>
+                                <div class='search-box'>
+                                    <input expr:placeholder='&quot;ابحث هنا...&quot;' name='q' type='text'/>
+                                    <button type='submit'>🔍</button>
+                                </div>
+                            </form>
+                        </div>
+                    </b:includable>
+                </b:widget>
 
                 <!-- AdSense Sidebar Ad -->
-                <div class='ad-placeholder widget'>
-                    إعلان جانبي - ضع كود أدسنس هنا
-                </div>
+                <b:widget id='HTML4' locked='false' title='إعلان جانبي' type='HTML' version='2'>
+                    <b:includable id='main'>
+                        <div class='ad-placeholder widget'>
+                            إعلان جانبي - ضع كود أدسنس هنا
+                        </div>
+                    </b:includable>
+                </b:widget>
 
                 <!-- Recent Posts Widget -->
-                <b:section class='sidebar-section' id='sidebar-recent' showaddelement='yes'>
-                    <b:widget id='PopularPosts1' locked='false' title='أحدث المقالات' type='PopularPosts' version='2'>
-                        <b:includable id='main'>
-                            <div class='widget'>
-                                <h3 class='widget-title'>أحدث المقالات</h3>
-                                <b:loop values='data:posts' var='post'>
-                                    <div class='recent-post'>
-                                        <div class='recent-post-thumb'>
-                                            <a expr:href='data:post.url'>
-                                                <b:if cond='data:post.thumbnail'>
-                                                    <img expr:alt='data:post.title' expr:src='data:post.thumbnail' loading='lazy'/>
-                                                <b:else/>
-                                                    <img alt='Default' loading='lazy' src='https://via.placeholder.com/80x80/2563eb/ffffff?text=No+Img'/>
-                                                </b:if>
-                                            </a>
-                                        </div>
-                                        <div class='recent-post-info'>
-                                            <h4><a expr:href='data:post.url'><data:post.title/></a></h4>
-                                            <span class='recent-post-date'><data:post.date/></span>
-                                        </div>
+                <b:widget id='PopularPosts1' locked='false' title='أحدث المقالات' type='PopularPosts' version='2'>
+                    <b:includable id='main'>
+                        <div class='widget'>
+                            <h3 class='widget-title'>أحدث المقالات</h3>
+                            <b:loop values='data:posts' var='post'>
+                                <div class='recent-post'>
+                                    <div class='recent-post-thumb'>
+                                        <a expr:href='data:post.url'>
+                                            <b:if cond='data:post.thumbnail'>
+                                                <img expr:alt='data:post.title' expr:src='data:post.thumbnail' loading='lazy'/>
+                                            <b:else/>
+                                                <img alt='Default' loading='lazy' src='https://via.placeholder.com/80x80/2563eb/ffffff?text=No+Img'/>
+                                            </b:if>
+                                        </a>
                                     </div>
-                                </b:loop>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                </b:section>
+                                    <div class='recent-post-info'>
+                                        <h4><a expr:href='data:post.url'><data:post.title/></a></h4>
+                                        <span class='recent-post-date'><data:post.date/></span>
+                                    </div>
+                                </div>
+                            </b:loop>
+                        </div>
+                    </b:includable>
+                </b:widget>
 
                 <!-- Categories Widget -->
-                <b:section class='sidebar-section' id='sidebar-labels' showaddelement='yes'>
-                    <b:widget id='Label1' locked='false' title='الأقسام' type='Label' version='2'>
-                        <b:includable id='main'>
-                            <div class='widget'>
-                                <h3 class='widget-title'>الأقسام</h3>
-                                <ul class='category-list'>
-                                    <b:loop values='data:labels' var='label'>
-                                        <li>
-                                            <a expr:href='data:label.url'>
-                                                <span><data:label.name/></span>
-                                                <span class='category-count'><data:label.count/></span>
-                                            </a>
-                                        </li>
-                                    </b:loop>
-                                </ul>
-                            </div>
-                        </b:includable>
-                    </b:widget>
-                </b:section>
-            </aside>
+                <b:widget id='Label1' locked='false' title='الأقسام' type='Label' version='2'>
+                    <b:includable id='main'>
+                        <div class='widget'>
+                            <h3 class='widget-title'>الأقسام</h3>
+                            <ul class='category-list'>
+                                <b:loop values='data:labels' var='label'>
+                                    <li>
+                                        <a expr:href='data:label.url'>
+                                            <span><data:label.name/></span>
+                                            <span class='category-count'><data:label.count/></span>
+                                        </a>
+                                    </li>
+                                </b:loop>
+                            </ul>
+                        </div>
+                    </b:includable>
+                </b:widget>
+            </b:section>
         </div>
     </div>
 
