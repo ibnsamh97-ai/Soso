@@ -1,0 +1,1526 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset="UTF-8"/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <!-- Dynamic Meta Tags for SEO -->
+    <b:if cond='data:view.isPost'>
+        <title><data:blog.pageName/> | <data:blog.title/></title>
+        <meta expr:content='data:blog.pageName' property='og:title'/>
+        <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+        <meta content='article' property='og:type'/>
+        <b:if cond='data:blog.postImageThumbnailUrl'>
+            <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+        </b:if>
+        <b:if cond='data:blog.metaDescription'>
+            <meta expr:content='data:blog.metaDescription' name='description'/>
+            <meta expr:content='data:blog.metaDescription' property='og:description'/>
+        </b:if>
+    <b:else/>
+        <title><data:blog.pageTitle/></title>
+        <meta expr:content='data:blog.title' property='og:title'/>
+        <meta expr:content='data:blog.homepageUrl' property='og:url'/>
+        <meta content='website' property='og:type'/>
+    </b:if>
+
+    <meta content='summary_large_image' name='twitter:card'/>
+    <link expr:href='data:blog.homepageUrl' rel='canonical'/>
+
+    <b:skin version='1.3.0'><![CDATA[
+/* ===================================
+   Premium Blogger Template CSS
+   Modern, Clean & Responsive Design
+   =================================== */
+
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #0f172a;
+    --accent-color: #f59e0b;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --bg-color: #ffffff;
+    --bg-secondary: #f8fafc;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-secondary);
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === Header Styles === */
+.header-wrapper {
+    background: var(--bg-color);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo:hover {
+    color: var(--primary-color);
+}
+
+/* === Navigation Menu === */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    display: block;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.nav-menu .dropdown {
+    position: relative;
+}
+
+.nav-menu .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-color);
+    box-shadow: var(--shadow-lg);
+    min-width: 200px;
+    padding: 1rem 0;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+}
+
+.nav-menu .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    padding: 0.5rem 1.5rem;
+    color: var(--text-color);
+}
+
+.dropdown-menu a:hover {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* === Hero Slider === */
+.hero-slider {
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.slider-container {
+    position: relative;
+    height: 500px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 2rem;
+    color: white;
+}
+
+.slide-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    animation: slideUp 0.6s ease-out;
+}
+
+.slide-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    animation: slideUp 0.6s ease-out 0.2s backwards;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-dot.active {
+    background: white;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.3);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    background: rgba(255,255,255,0.8);
+    color: var(--secondary-color);
+}
+
+.slider-arrow.prev {
+    left: 20px;
+}
+
+.slider-arrow.next {
+    right: 20px;
+}
+
+/* === Main Content Grid === */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* === Post Cards Grid === */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background: var(--bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.post-thumbnail {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-thumbnail img {
+    transform: scale(1.1);
+}
+
+.post-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.post-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: var(--secondary-color);
+}
+
+.post-title a {
+    color: var(--secondary-color);
+}
+
+.post-title a:hover {
+    color: var(--primary-color);
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-excerpt {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--primary-color);
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.read-more:hover {
+    gap: 10px;
+}
+
+/* === Sidebar === */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.widget {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.widget-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-box button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-box button:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Recent Posts Widget */
+.recent-post {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recent-post:last-child {
+    border-bottom: none;
+}
+
+.recent-post-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.recent-post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.recent-post:hover .recent-post-thumb img {
+    transform: scale(1.1);
+}
+
+.recent-post-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.recent-post-info h4 a {
+    color: var(--secondary-color);
+}
+
+.recent-post-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Categories Widget */
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-list li:last-child {
+    border-bottom: none;
+}
+
+.category-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.category-list a:hover {
+    color: var(--primary-color);
+    padding-left: 10px;
+}
+
+.category-count {
+    background: var(--bg-secondary);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* AdSense Placeholder */
+.ad-placeholder {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    color: var(--text-light);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* === Single Post Page === */
+.post-page {
+    background: var(--bg-color);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.post-header {
+    margin-bottom: 2rem;
+}
+
+.post-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.post-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.post-body img {
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.post-body h2,
+.post-body h3 {
+    margin: 2rem 0 1rem;
+    color: var(--secondary-color);
+}
+
+.post-body p {
+    margin-bottom: 1.5rem;
+}
+
+.post-body a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Social Share Buttons */
+.social-share {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.share-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.share-facebook { background: #1877f2; }
+.share-twitter { background: #1da1f2; }
+.share-linkedin { background: #0077b5; }
+.share-whatsapp { background: #25d366; }
+
+/* Author Box */
+.author-box {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.author-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.author-bio {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Related Posts */
+.related-posts {
+    margin-top: 3rem;
+}
+
+.related-posts h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* === Footer === */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-widget h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.footer-widget p {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+}
+
+.footer-widget ul {
+    list-style: none;
+}
+
+.footer-widget ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-widget ul li a {
+    color: rgba(255,255,255,0.8);
+    transition: var(--transition);
+}
+
+.footer-widget ul li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+}
+
+/* === Animations === */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Lazy Loading Effect */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+    .main-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--bg-color);
+        width: 80%;
+        height: calc(100vh - 70px);
+        padding: 2rem;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .slider-container {
+        height: 350px;
+    }
+
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .post-page {
+        padding: 1.5rem;
+    }
+
+    .post-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .social-share {
+        flex-wrap: wrap;
+    }
+
+    .author-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-container {
+        height: 250px;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* === Loading Animation === */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === Scroll to Top Button === */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    z-index: 999;
+}
+
+.scroll-to-top:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.scroll-to-top.show {
+    display: flex;
+}
+    ]]></b:skin>
+
+    <b:template-skin>
+        <![CDATA[
+        body#layout .widget {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        ]]>
+    </b:template-skin>
+</head>
+
+<body>
+    <!-- Schema Markup for SEO -->
+    <b:if cond='data:view.isPost'>
+        <script type='application/ld+json'>
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "<data:blog.pageName/>",
+            "image": "<data:blog.postImageUrl/>",
+            "author": {
+                "@type": "Person",
+                "name": "<data:post.author/>"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "<data:blog.title/>",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "<data:blog.logoUrl/>"
+                }
+            },
+            "datePublished": "<data:post.date.iso8601/>",
+            "dateModified": "<data:post.lastUpdated.iso8601/>"
+        }
+        </script>
+    </b:if>
+
+    <!-- Header -->
+    <header class='header-wrapper'>
+        <div class='container'>
+            <div class='header-content'>
+                <b:section class='logo-section' id='logo-section' maxwidgets='1' showaddelement='no'>
+                    <b:widget id='Header1' locked='true' title='Premium Blog (رأس الصفحة)' type='Header' version='2'>
+                        <b:includable id='main'>
+                            <a class='logo' expr:href='data:blog.homepageUrl'>
+                                <b:if cond='data:imagePlacement == &quot;REPLACE&quot;'>
+                                    <img expr:alt='data:blog.title' expr:src='data:sourceUrl' expr:title='data:blog.title'/>
+                                <b:else/>
+                                    <span><data:blog.title/></span>
+                                </b:if>
+                            </a>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <!-- Mobile Menu Toggle -->
+                <div class='menu-toggle' id='menuToggle'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav>
+                    <ul class='nav-menu' id='navMenu'>
+                        <li><a href='/'>الرئيسية</a></li>
+                        <li class='dropdown'>
+                            <a href='#'>التقنية</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='#'>برمجة</a></li>
+                                <li><a href='#'>تصميم</a></li>
+                                <li><a href='#'>أمن معلومات</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>أخبار</a></li>
+                        <li><a href='#'>مراجعات</a></li>
+                        <li><a href='#'>اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider (Home Page Only) -->
+    <b:if cond='data:view.isHomepage'>
+        <div class='container'>
+            <div class='hero-slider'>
+                <div class='slider-container' id='heroSlider'>
+                    <!-- Slides will be generated by JavaScript -->
+                </div>
+                <button class='slider-arrow prev' onclick='moveSlide(-1)'>&#10094;</button>
+                <button class='slider-arrow next' onclick='moveSlide(1)'>&#10095;</button>
+                <div class='slider-nav' id='sliderDots'></div>
+            </div>
+        </div>
+    </b:if>
+
+    <!-- Main Content -->
+    <div class='container'>
+        <div class='main-wrapper'>
+            <!-- Posts Section -->
+            <main>
+                <!-- AdSense Header Ad -->
+                <div class='ad-placeholder widget' id='header-ad'>
+                    <!-- Insert AdSense Code Here -->
+                    إعلان رأسي - ضع كود أدسنس هنا
+                </div>
+
+                <b:section class='main-posts' id='main' showaddelement='no'>
+                    <b:widget id='Blog1' locked='true' title='منشورات المدونة' type='Blog' version='2'>
+                        <b:includable id='main'>
+                            <b:if cond='data:view.isHomepage or data:view.isArchive'>
+                                <!-- Grid Layout for Homepage -->
+                                <div class='posts-grid'>
+                                    <b:loop values='data:posts' var='post'>
+                                        <article class='post-card'>
+                                            <div class='post-thumbnail'>
+                                                <b:if cond='data:post.firstImageUrl'>
+                                                    <a expr:href='data:post.url'>
+                                                        <img expr:alt='data:post.title' expr:src='data:post.firstImageUrl' loading='lazy'/>
+                                                    </a>
+                                                <b:else/>
+                                                    <a expr:href='data:post.url'>
+                                                        <img alt='Default Image' loading='lazy' src='https://via.placeholder.com/400x200/2563eb/ffffff?text=No+Image'/>
+                                                    </a>
+                                                </b:if>
+                                                <span class='post-category'>
+                                                    <b:if cond='data:post.labels'>
+                                                        <data:post.labels.first.name/>
+                                                    <b:else/>
+                                                        عام
+                                                    </b:if>
+                                                </span>
+                                            </div>
+                                            <div class='post-content'>
+                                                <h2 class='post-title'>
+                                                    <a expr:href='data:post.url'><data:post.title/></a>
+                                                </h2>
+                                                <div class='post-meta'>
+                                                    <span>📅 <data:post.date/></span>
+                                                    <span>👤 <data:post.author/></span>
+                                                </div>
+                                                <p class='post-excerpt'>
+                                                    <b:eval expr='snippet(data:post.body, {length: 150, links: false, linebreaks: false, ellipsis: true})'/>
+                                                </p>
+                                                <a class='read-more' expr:href='data:post.url'>
+                                                    اقرأ المزيد ←
+                                                </a>
+                                            </div>
+                                        </article>
+                                    </b:loop>
+                                </div>
+                            </b:if>
+
+                            <b:if cond='data:view.isPost'>
+                                <!-- Single Post View -->
+                                <b:loop values='data:posts' var='post'>
+                                    <article class='post-page fade-in'>
+                                        <div class='post-header'>
+                                            <h1><data:post.title/></h1>
+                                            <div class='post-meta'>
+                                                <span>📅 <data:post.date/></span>
+                                                <span>👤 <data:post.author/></span>
+                                                <span>💬 <data:post.numComments/> تعليق</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- AdSense In-Post Ad -->
+                                        <div class='ad-placeholder' style='margin: 2rem 0;'>
+                                            إعلان داخل المقال - ضع كود أدسنس هنا
+                                        </div>
+
+                                        <div class='post-body'>
+                                            <data:post.body/>
+                                        </div>
+
+                                        <!-- Social Share Buttons -->
+                                        <div class='social-share'>
+                                            <button class='share-btn share-facebook' onclick='shareOnFacebook()'>
+                                                📘 شارك على فيسبوك
+                                            </button>
+                                            <button class='share-btn share-twitter' onclick='shareOnTwitter()'>
+                                                🐦 شارك على تويتر
+                                            </button>
+                                            <button class='share-btn share-linkedin' onclick='shareOnLinkedIn()'>
+                                                💼 شارك على لينكد إن
+                                            </button>
+                                            <button class='share-btn share-whatsapp' onclick='shareOnWhatsApp()'>
+                                                💬 شارك على واتساب
+                                            </button>
+                                        </div>
+
+                                        <!-- Author Box -->
+                                        <div class='author-box'>
+                                            <div class='author-avatar'>
+                                                <img alt='Author' src='https://via.placeholder.com/100x100/2563eb/ffffff?text=Author'/>
+                                            </div>
+                                            <div class='author-info'>
+                                                <h3>الكاتب: <data:post.author/></h3>
+                                                <p class='author-bio'>
+                                                    كاتب ومدون محترف متخصص في التقنية والبرمجة. يسعى لتقديم محتوى قيّم ومفيد للقراء العرب.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <!-- AdSense Bottom Ad -->
+                                        <div class='ad-placeholder' style='margin: 2rem 0;'>
+                                            إعلان أسفل المقال - ضع كود أدسنس هنا
+                                        </div>
+                                    </article>
+                                </b:loop>
+
+                                <!-- Related Posts -->
+                                <div class='related-posts'>
+                                    <h3>مقالات ذات صلة</h3>
+                                    <div class='posts-grid' id='relatedPosts'>
+                                        <!-- Related posts will be loaded by JavaScript -->
+                                    </div>
+                                </div>
+                            </b:if>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class='sidebar'>
+                <!-- Search Widget -->
+                <div class='widget'>
+                    <h3 class='widget-title'>بحث في الموقع</h3>
+                    <b:section class='search-section' id='search-section' maxwidgets='1'>
+                        <b:widget id='Search1' locked='false' title='بحث' type='BlogSearch' version='2'>
+                            <b:includable id='main'>
+                                <div class='search-box'>
+                                    <input expr:placeholder='&quot;ابحث هنا...&quot;' name='q' type='text'/>
+                                    <button type='submit'>🔍</button>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </div>
+
+                <!-- AdSense Sidebar Ad -->
+                <div class='ad-placeholder widget'>
+                    إعلان جانبي - ضع كود أدسنس هنا
+                </div>
+
+                <!-- Recent Posts Widget -->
+                <b:section class='sidebar-section' id='sidebar-recent' showaddelement='yes'>
+                    <b:widget id='PopularPosts1' locked='false' title='أحدث المقالات' type='PopularPosts' version='2'>
+                        <b:includable id='main'>
+                            <div class='widget'>
+                                <h3 class='widget-title'>أحدث المقالات</h3>
+                                <b:loop values='data:posts' var='post'>
+                                    <div class='recent-post'>
+                                        <div class='recent-post-thumb'>
+                                            <a expr:href='data:post.url'>
+                                                <b:if cond='data:post.thumbnail'>
+                                                    <img expr:alt='data:post.title' expr:src='data:post.thumbnail' loading='lazy'/>
+                                                <b:else/>
+                                                    <img alt='Default' loading='lazy' src='https://via.placeholder.com/80x80/2563eb/ffffff?text=No+Img'/>
+                                                </b:if>
+                                            </a>
+                                        </div>
+                                        <div class='recent-post-info'>
+                                            <h4><a expr:href='data:post.url'><data:post.title/></a></h4>
+                                            <span class='recent-post-date'><data:post.date/></span>
+                                        </div>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <!-- Categories Widget -->
+                <b:section class='sidebar-section' id='sidebar-labels' showaddelement='yes'>
+                    <b:widget id='Label1' locked='false' title='الأقسام' type='Label' version='2'>
+                        <b:includable id='main'>
+                            <div class='widget'>
+                                <h3 class='widget-title'>الأقسام</h3>
+                                <ul class='category-list'>
+                                    <b:loop values='data:labels' var='label'>
+                                        <li>
+                                            <a expr:href='data:label.url'>
+                                                <span><data:label.name/></span>
+                                                <span class='category-count'><data:label.count/></span>
+                                            </a>
+                                        </li>
+                                    </b:loop>
+                                </ul>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class='footer'>
+        <div class='container'>
+            <div class='footer-content'>
+                <b:section class='footer-section' id='footer1' showaddelement='yes'>
+                    <b:widget id='HTML1' locked='false' title='عن الموقع' type='HTML' version='2'>
+                        <b:includable id='main'>
+                            <div class='footer-widget'>
+                                <h3>عن الموقع</h3>
+                                <p>
+                                    موقع احترافي متخصص في تقديم محتوى تقني عربي عالي الجودة. نهدف لتوفير أحدث الأخبار والمقالات في عالم التقنية والبرمجة.
+                                </p>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <b:section class='footer-section' id='footer2' showaddelement='yes'>
+                    <b:widget id='HTML2' locked='false' title='روابط سريعة' type='HTML' version='2'>
+                        <b:includable id='main'>
+                            <div class='footer-widget'>
+                                <h3>روابط سريعة</h3>
+                                <ul>
+                                    <li><a href='/'>الرئيسية</a></li>
+                                    <li><a href='/p/about.html'>من نحن</a></li>
+                                    <li><a href='/p/privacy.html'>سياسة الخصوصية</a></li>
+                                    <li><a href='/p/contact.html'>اتصل بنا</a></li>
+                                </ul>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <b:section class='footer-section' id='footer3' showaddelement='yes'>
+                    <b:widget id='HTML3' locked='false' title='تابعنا' type='HTML' version='2'>
+                        <b:includable id='main'>
+                            <div class='footer-widget'>
+                                <h3>تابعنا</h3>
+                                <ul>
+                                    <li><a href='#'>📘 فيسبوك</a></li>
+                                    <li><a href='#'>🐦 تويتر</a></li>
+                                    <li><a href='#'>📸 إنستجرام</a></li>
+                                    <li><a href='#'>💼 لينكد إن</a></li>
+                                </ul>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+
+            <div class='footer-bottom'>
+                <p>© 2025 جميع الحقوق محفوظة | تصميم بواسطة Premium Blog Template</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class='scroll-to-top' id='scrollTopBtn' onclick='scrollToTop()'>↑</button>
+
+    <!-- JavaScript -->
+    <script>
+    //<![CDATA[
+    // ====================================
+    // Premium Blogger Template JavaScript
+    // ====================================
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Hero Slider
+    let currentSlide = 0;
+    const slides = [];
+
+    // Get featured posts for slider (customize labels as needed)
+    function initSlider() {
+        const sliderContainer = document.getElementById('heroSlider');
+        if (!sliderContainer) return;
+
+        // Sample slider data - you can fetch from blog posts
+        const sliderData = [
+            {
+                image: 'https://via.placeholder.com/1200x500/2563eb/ffffff?text=Slide+1',
+                title: 'أحدث أخبار التقنية',
+                description: 'تابع معنا آخر التطورات في عالم التكنولوجيا'
+            },
+            {
+                image: 'https://via.placeholder.com/1200x500/0f172a/ffffff?text=Slide+2',
+                title: 'دروس البرمجة',
+                description: 'تعلم البرمجة من الصفر حتى الاحتراف'
+            },
+            {
+                image: 'https://via.placeholder.com/1200x500/f59e0b/ffffff?text=Slide+3',
+                title: 'مراجعات شاملة',
+                description: 'مراجعات تفصيلية لأحدث المنتجات التقنية'
+            }
+        ];
+
+        sliderData.forEach((slide, index) => {
+            const slideEl = document.createElement('div');
+            slideEl.className = 'slide' + (index === 0 ? ' active' : '');
+            slideEl.innerHTML = `
+                <img src="${slide.image}" alt="${slide.title}">
+                <div class="slide-content">
+                    <h2>${slide.title}</h2>
+                    <p>${slide.description}</p>
+                </div>
+            `;
+            sliderContainer.appendChild(slideEl);
+            slides.push(slideEl);
+        });
+
+        // Create dots
+        const dotsContainer = document.getElementById('sliderDots');
+        sliderData.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(index);
+            dotsContainer.appendChild(dot);
+        });
+
+        // Auto slide
+        setInterval(() => moveSlide(1), 5000);
+    }
+
+    function moveSlide(direction) {
+        if (slides.length === 0) return;
+
+        slides[currentSlide].classList.remove('active');
+        document.querySelectorAll('.slider-dot')[currentSlide].classList.remove('active');
+
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+
+        slides[currentSlide].classList.add('active');
+        document.querySelectorAll('.slider-dot')[currentSlide].classList.add('active');
+    }
+
+    function goToSlide(index) {
+        if (slides.length === 0) return;
+
+        slides[currentSlide].classList.remove('active');
+        document.querySelectorAll('.slider-dot')[currentSlide].classList.remove('active');
+
+        currentSlide = index;
+
+        slides[currentSlide].classList.add('active');
+        document.querySelectorAll('.slider-dot')[currentSlide].classList.add('active');
+    }
+
+    // Initialize slider on page load
+    document.addEventListener('DOMContentLoaded', initSlider);
+
+    // Lazy Loading for Images
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+    });
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('show');
+        } else {
+            scrollTopBtn.classList.remove('show');
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Social Share Functions
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(document.title);
+        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+    }
+
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${url}`, '_blank', 'width=600,height=400');
+    }
+
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(document.title);
+        window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+    }
+
+    // Related Posts (for single post page)
+    function loadRelatedPosts() {
+        const relatedContainer = document.getElementById('relatedPosts');
+        if (!relatedContainer) return;
+
+        // Sample related posts - in real implementation, fetch from same labels
+        const relatedPosts = [
+            {
+                url: '#',
+                image: 'https://via.placeholder.com/400x200/2563eb/ffffff?text=Related+1',
+                title: 'مقال ذو صلة 1',
+                date: 'منذ يومين',
+                category: 'برمجة'
+            },
+            {
+                url: '#',
+                image: 'https://via.placeholder.com/400x200/0f172a/ffffff?text=Related+2',
+                title: 'مقال ذو صلة 2',
+                date: 'منذ 3 أيام',
+                category: 'تصميم'
+            },
+            {
+                url: '#',
+                image: 'https://via.placeholder.com/400x200/f59e0b/ffffff?text=Related+3',
+                title: 'مقال ذو صلة 3',
+                date: 'منذ أسبوع',
+                category: 'تقنية'
+            }
+        ];
+
+        relatedPosts.forEach(post => {
+            const postCard = document.createElement('article');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+                <div class="post-thumbnail">
+                    <a href="${post.url}">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
+                    </a>
+                    <span class="post-category">${post.category}</span>
+                </div>
+                <div class="post-content">
+                    <h2 class="post-title">
+                        <a href="${post.url}">${post.title}</a>
+                    </h2>
+                    <div class="post-meta">
+                        <span>📅 ${post.date}</span>
+                    </div>
+                    <a class="read-more" href="${post.url}">اقرأ المزيد ←</a>
+                </div>
+            `;
+            relatedContainer.appendChild(postCard);
+        });
+    }
+
+    // Load related posts on single post page
+    if (document.getElementById('relatedPosts')) {
+        document.addEventListener('DOMContentLoaded', loadRelatedPosts);
+    }
+
+    // Header scroll effect
+    let lastScroll = 0;
+    const header = document.querySelector('.header-wrapper');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Animate elements on scroll
+    const observeElements = document.querySelectorAll('.post-card, .widget');
+    const elementObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeIn 0.6s ease-out';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observeElements.forEach(el => elementObserver.observe(el));
+    //]]>
+    </script>
+</body>
+</html>
