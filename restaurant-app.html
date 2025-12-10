@@ -544,7 +544,7 @@
 
         // 📱 ضع هنا رقم واتساب المطعم (بدون + أو 00)
         // مثال: 9647XXXXXXXXX للعراق
-        const RESTAURANT_WHATSAPP_NUMBER = '9647XXXXXXXXX';
+        const RESTAURANT_WHATSAPP_NUMBER = '9647801234567'; // رقم تجريبي
 
         // اسم العملة
         const CURRENCY = 'دينار';
@@ -561,6 +561,110 @@
         // ====================================
         async function fetchProducts() {
             try {
+                // ⚠️ للاختبار: بيانات تجريبية مضمنة
+                // عند الاستخدام الفعلي، احذف هذه البيانات وقم بتفعيل كود جلب CSV أدناه
+
+                products = [
+                    {
+                        id: 1,
+                        name: 'برجر لحم فاخر',
+                        price: 12.5,
+                        description: 'برجر لحم طازج مع الجبن والخضار الطازجة وصوص خاص',
+                        image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400',
+                        category: 'وجبات رئيسية',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 2,
+                        name: 'بيتزا مارغريتا',
+                        price: 15.0,
+                        description: 'بيتزا إيطالية أصلية مع صلصة الطماطم والجبن الموتزاريلا',
+                        image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400',
+                        category: 'وجبات رئيسية',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 3,
+                        name: 'دجاج مشوي',
+                        price: 10.0,
+                        description: 'دجاج مشوي بالفرن مع التوابل الخاصة وصوص الثوم',
+                        image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400',
+                        category: 'وجبات رئيسية',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 4,
+                        name: 'سلطة سيزر',
+                        price: 6.5,
+                        description: 'سلطة سيزر كلاسيكية مع الدجاج المشوي والجبن',
+                        image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400',
+                        category: 'مقبلات',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 5,
+                        name: 'بطاطس مقلية',
+                        price: 4.0,
+                        description: 'بطاطس مقلية مقرمشة مع ملح البحر',
+                        image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400',
+                        category: 'مقبلات',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 6,
+                        name: 'حلقات البصل',
+                        price: 5.0,
+                        description: 'حلقات بصل مقرمشة مع صوص خاص',
+                        image: 'https://images.unsplash.com/photo-1639024471283-03518883512d?w=400',
+                        category: 'مقبلات',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 7,
+                        name: 'عصير برتقال طازج',
+                        price: 3.5,
+                        description: 'عصير برتقال طبيعي 100% بدون سكر مضاف',
+                        image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400',
+                        category: 'مشروبات',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 8,
+                        name: 'موهيتو',
+                        price: 4.5,
+                        description: 'موهيتو منعش مع النعناع والليمون',
+                        image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=400',
+                        category: 'مشروبات',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 9,
+                        name: 'كيك الشوكولاتة',
+                        price: 7.0,
+                        description: 'كيك شوكولاتة فاخر مع صوص الشوكولاتة الساخن',
+                        image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400',
+                        category: 'حلويات',
+                        status: 'متوفر'
+                    },
+                    {
+                        id: 10,
+                        name: 'آيس كريم',
+                        price: 5.5,
+                        description: 'آيس كريم بنكهات متعددة: فانيلا، شوكولاتة، فراولة',
+                        image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400',
+                        category: 'حلويات',
+                        status: 'متوفر'
+                    }
+                ];
+
+                renderCategories();
+                renderProducts();
+
+                // ====================================
+                // كود جلب البيانات من Google Sheet (معطل للاختبار)
+                // لتفعيله: احذف البيانات التجريبية أعلاه وأزل التعليق عن الكود التالي
+                // ====================================
+                /*
                 const response = await fetch(GOOGLE_SHEET_CSV_URL);
                 const csvText = await response.text();
 
@@ -598,6 +702,7 @@
                 products = data;
                 renderCategories();
                 renderProducts();
+                */
 
             } catch (error) {
                 console.error('خطأ في جلب البيانات:', error);
